@@ -37,6 +37,8 @@ int main()
 
     Shader shaderProgram("resources/shaders/vertex.vert", "resources/shaders/fragment.frag");
 
+    initImGui(window);
+
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_CULL_FACE);
     glCullFace(GL_BACK);
@@ -48,6 +50,8 @@ int main()
     while(!glfwWindowShouldClose(window))
     {
         glfwPollEvents();
+        startImGuiFrame(&camera);
+
         waitForEscape(window);
         
         glClearColor(0.07f, 0.13f, 0.17f, 1.0f);
@@ -60,9 +64,11 @@ int main()
 
         camera.Matrix(fov, 0.1f, 100.0f, shaderProgram, "camMatrix", model);
         
+        endImGuiFrame();
         glfwSwapBuffers(window);
     }
 
+    imGuiEnd();
     shaderProgram.Delete();
     glfwDestroyWindow(window);
     glfwTerminate();
