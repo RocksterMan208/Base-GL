@@ -9,5 +9,4 @@ Compilation is handled through CMmake, but the following libraries are still req
 - OpenGL (typically handled through the installation of mesa on linux filesystems)
 
 ### To compile:
-```
 CMake can be ran through Visual Studio Code or some other IDEs that have the extension installed.
