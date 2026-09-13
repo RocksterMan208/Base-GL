@@ -10,3 +10,11 @@ Compilation is handled through CMmake, but the following libraries are still req
 
 ### To compile:
 CMake can be ran through Visual Studio Code or some other IDEs that have the extension installed.
+<br>But you can also compile with these following commands.</br>
+```
+cmake -S . -B build && cmake --build
+```
+Then you can run the executable outputted from CMake.
+```
+./gl
+```
