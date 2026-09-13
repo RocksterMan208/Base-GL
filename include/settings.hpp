@@ -5,4 +5,4 @@ constexpr int screenH = 1080;
 
 constexpr int fov = 45;
 
-constexpr char* title = "LearnOpenGL";
+const char* title = "LearnOpenGL";

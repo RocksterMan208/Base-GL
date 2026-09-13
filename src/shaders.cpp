@@ -31,7 +31,7 @@ Shader::Shader(const char* vertexFilePath, const char* fragFilePath)
     compileErrors(vertexShader, "VERTEX");
 
     GLuint fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-    glShaderSource(fragmentShader, 1, &vertexSource, NULL);
+    glShaderSource(fragmentShader, 1, &fragSource, NULL);
     glCompileShader(fragmentShader);
     compileErrors(fragmentShader, "FRAGMENT");
 
@@ -72,10 +72,10 @@ void Shader::compileErrors(unsigned int shader, const char* type)
     }
     else
     {
-        glGetShaderiv(shader, GL_LINK_STATUS, &hasCompiled);
+        glGetProgramiv(shader, GL_LINK_STATUS, &hasCompiled);
         if (hasCompiled == GL_FALSE)
         {
-            glGetShaderInfoLog(shader, 1024, NULL, infoLog);
+            glGetProgramInfoLog(shader, 1024, NULL, infoLog);
             std::cout << "Shader linking error for " << type << ":\n" << infoLog << std::endl;
         }
     }

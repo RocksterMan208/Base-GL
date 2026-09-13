@@ -35,7 +35,7 @@ int main()
     if(!gladLoadGL()) compileError("GLAD Initialisation");
     glViewport(0, 0, screenW, screenH);
 
-    Shader shaderProgram("resources/shaders/vertex.glsl", "resources/shaders/fragment.glsl");
+    Shader shaderProgram("resources/shaders/vertex.vert", "resources/shaders/fragment.frag");
 
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_CULL_FACE);
