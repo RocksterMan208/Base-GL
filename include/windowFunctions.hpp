@@ -3,7 +3,7 @@
 #include "imgui.h"
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
-#include"camera.h"
+#include"camera.hpp"
 
 void waitForEscape(GLFWwindow* window) // Waiting for key press 'Escape' to exit the program
 {
@@ -22,6 +22,26 @@ int checkChangeF(float variable) // Checks whether a variable has been changed f
         return 1;
     }
     return 0;
+}
+
+int checkChangeI(int variable) // Checks whether a variable has been changed from its set value. Especially useful for configuring variables through ImGUI
+{
+    static int lastVariable = variable;
+    if (lastVariable != variable)
+    {
+        lastVariable = variable;
+        return 1;
+    }
+    return 0;
+}
+
+bool checkSinglePress(int key, GLFWwindow* window)
+{
+    static std::unordered_map<int, bool> wasPressedMap;
+    bool isPressed = glfwGetKey(window, key) == GLFW_PRESS;
+    bool singlePress = isPressed && !wasPressedMap[key];
+    wasPressedMap[key] = isPressed;
+    return singlePress;
 }
 
 void initImGui(GLFWwindow* window) // Place after window creation/initialization stage

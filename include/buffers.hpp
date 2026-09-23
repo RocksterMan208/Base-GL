@@ -1,11 +1,11 @@
 #pragma once
 #include<glad/glad.h>
 
-class VBO
+class VBO // In any classes which create then upload a mesh, please create a pointer towards this class
 {
     public:
         GLuint ID;
-        VBO(GLfloat* vertices, GLsizeiptr size);
+        VBO(const void* vertices, GLsizeiptr size);
 
         void Bind();
         void Unbind();
@@ -24,11 +24,11 @@ class VAO
         void Delete();
 };
 
-class EBO
+class EBO // In any classes which create then upload a mesh, please create a pointer towards this class
 {
     public:
         GLuint ID;
-        EBO(GLint* indices, GLsizeiptr size);
+        EBO(const void*, GLsizeiptr size);
 
         void Bind();
         void Unbind();

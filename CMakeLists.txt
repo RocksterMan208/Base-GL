@@ -7,11 +7,13 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(GLAD_DIR ${CMAKE_SOURCE_DIR}/external/glad)
 set(IMGUI_DIR ${CMAKE_SOURCE_DIR}/external/imgui)
+set(STB_DIR ${CMAKE_SOURCE_DIR}/external/stb_image)
 
 file(GLOB_RECURSE SOURCES
     ${CMAKE_SOURCE_DIR}/src/*.cpp
     ${GLAD_DIR}/src/*.c
     ${IMGUI_DIR}/src/*.cpp
+    ${STB_DIR}/src/*.cpp
 )
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR})
@@ -27,6 +29,7 @@ target_include_directories(${PROJECT_NAME} PRIVATE
     ${GLAD_DIR}/include
     ${IMGUI_DIR}/include
     ${IMGUI_DIR}/src
+    ${STB_DIR}/include
 )
 
 target_link_libraries(${PROJECT_NAME} PRIVATE

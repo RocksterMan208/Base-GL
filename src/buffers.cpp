@@ -1,6 +1,6 @@
-#include"buffers.h"
+#include"buffers.hpp"
 
-VBO::VBO(GLfloat* vertices, GLsizeiptr size)
+VBO::VBO(const void* vertices, GLsizeiptr size)
 {
     glGenBuffers(1, &ID);
     glBindBuffer(GL_ARRAY_BUFFER, ID);
@@ -52,7 +52,7 @@ void VAO::Delete()
     glDeleteVertexArrays(1, &ID);
 }
 
-EBO::EBO(GLint* indices, GLsizeiptr size)
+EBO::EBO(const void* indices, GLsizeiptr size)
 {
     glGenBuffers(1, &ID);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ID);

@@ -1,8 +1,8 @@
-#include"shaders.h"
-#include"textures.h"
-#include"buffers.h"
+#include"shaders.hpp"
+#include"texture.hpp"
+#include"buffers.hpp"
 #include"settings.hpp"
-#include"camera.h"
+#include"camera.hpp"
 #include"windowFunctions.hpp"
 
 #include<iostream>
