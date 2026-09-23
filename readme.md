@@ -10,6 +10,8 @@ Compilation is handled through CMmake, but the following libraries are still req
 - glm
 - OpenGL (typically handled through the installation of mesa on linux filesystems)
 
+Certain libraries I will make CMake download for you.
+
 ### To compile:
 You can compile with these following commands.</br>
 ```
